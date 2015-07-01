@@ -3,7 +3,17 @@ Description=Minecraft Server for Agrarian Skies 2
 
 [Service]
 Type=simple
-ExecStart=/usr/sbin/systemd-docker run --rm --name agrarianskies2 -p 25565:25565 -v /srv/minecraft/agrarianskies2/banned-ips.json:/srv/minecraft/banned-ips.json -v /srv/minecraft/agrarianskies2/banned-players.json:/srv/agrarianskies2/banned-players.json -v /srv/minecraft/agrarianskies2/logs:/srv/agrarianskies2/logs -v /srv/minecraft/agrarianskies2/ops.json:/srv/minecraft/agrarianskies2/ops.json -v /srv/minecraft/agrarianskies2/server.properties:/srv/agrarianskies2/server.properties -v /srv/minecraft/agrarianskies2/usercache.json:/srv/agrarianskies2/usercache.json -v /srv/minecraft/agrarianskies2/whitelist.json:/srv/minecraft/whitelist.json -v /srv/minecraft/agrarianskies2/world:/srv/minecraft/world demon012/minecraft-agrarianskies2
+ExecStart=/usr/sbin/systemd-docker run --rm --name agrarianskies2 -p 25565:25565 \
+          -v /srv/minecraft/agrarianskies2/world:/srv/minecraft/world \
+          -v /srv/minecraft/agrarianskies2/banned-ips.json:/srv/minecraft/banned-ips.json \
+          -v /srv/minecraft/agrarianskies2/banned-players.json:/srv/minecraft/banned-players.json \
+          -v /srv/minecraft/agrarianskies2/logs:/srv/minecraft/logs \
+          -v /srv/minecraft/agrarianskies2/ops.json:/srv/minecraft/ops.json \
+          -v /srv/minecraft/agrarianskies2/usercache.json:/srv/minecraft/usercache.json \
+          -v /srv/minecraft/agrarianskies2/whitelist.json:/srv/minecraft/whitelist.json \
+          -v /srv/minecraft/agrarianskies2/server.properties:/srv/minecraft/server.properties \
+          -v /srv/minecraft/agrarianskies2/config/JourneyMapServer:/srv/minecraft/config/JourneyMapServer \
+          demon012/minecraft-agrarianskies2
 Restart=always
 
 [Install]
