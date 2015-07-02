@@ -11,9 +11,9 @@ ExecStart=/usr/sbin/systemd-docker run --rm --name agrarianskies2 -p 25566:25565
           -v /srv/minecraft/agrarianskies2/ops.json:/srv/minecraft/ops.json \
           -v /srv/minecraft/agrarianskies2/usercache.json:/srv/minecraft/usercache.json \
           -v /srv/minecraft/agrarianskies2/whitelist.json:/srv/minecraft/whitelist.json \
-          # -v /srv/minecraft/agrarianskies2/server.properties:/srv/minecraft/server.properties \
           -v /srv/minecraft/agrarianskies2/config/JourneyMapServer:/srv/minecraft/config/JourneyMapServer \
           demon012/minecraft-agrarianskies2
+          # -v /srv/minecraft/agrarianskies2/server.properties:/srv/minecraft/server.properties \
 Restart=always
 
 [Install]
