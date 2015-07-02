@@ -8,11 +8,16 @@ RUN apt-get install python2.7 -y
 ADD get_pack.py /usr/bin/get_pack
 RUN mkdir -p /srv/minecraft && cd /srv/minecraft/ && /usr/bin/get_pack agrarianskies2 && mkdir /srv/minecraft/world && echo 'eula=true' > /srv/minecraft/eula.txt && rm /srv/minecraft/minecraft.zip
 RUN rm /usr/bin/get_pack
-RUN rm /srv/minecraft/mods/AromaBackup-1.7.10-0.0.0.5.jar
-RUN apt-get remove --purge python2.7 -y
 VOLUME /srv/minecraft/world
 VOLUME /backups
-CMD cd /srv/minecraft/ && java -server -XX:+UseConcMarkSweepGC -XX:NewRatio=1 -Xmx8096M -Xms8096M -jar forge-1.7.10-10.13.3.1428-1.7.10-universal.jar nogui
+RUN apt-get install -y curl
+RUN rm /srv/minecraft/mods/AromaBackup-1.7.10-0.0.0.5.jar
+RUN apt-get remove --purge python2.7 -y
+ADD mcrcon /usr/bin/mcrcon
+ADD start_mc.sh /usr/bin/start_mc
+RUN chmod 555 /usr/bin/start_mc
+RUN chmod 555 /usr/bin/mcrcon
+CMD /usr/bin/start_mc
 RUN apt-get autoremove -y && \
         # AUTO_ADDED_PACKAGES=`apt-mark showauto` && \
         # apt-get remove --purge -y $AUTO_ADDED_PACKAGES && \
