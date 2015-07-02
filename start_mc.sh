@@ -37,4 +37,4 @@ ENDCONFIG
 
 echo "$VAR" > /srv/minecraft/server.properties
 
-cd /srv/minecraft/ && java -server -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:NewRatio=1 -Xmx8096M -Xms8096M -jar FTBServer-1.7.10-1408.jar nogui
+cd /srv/minecraft/ && java -server -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:NewRatio=1 -Xmx8096M -Xms8096M -jar forge-1.7.10-10.13.3.1428-1.7.10-universal.jar nogui
